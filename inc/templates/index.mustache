@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    </head>
+    <body>
+        <h2>CallCenter</h2>
+        {{#error}}
+        <h3>Nastaly tyto chyby:</h3>
+        <ul>
+            {{#error_messages}}
+            <li>{{.}}</li>
+            {{/error_messages}}
+        </ul>
+        {{/error}}
+        <form action="index.php" method="post">
+            Jméno:<br>
+            <input type="text" name="firstname" value="{{values.firstname}}">
+            <br>
+            Příjmení:<br>
+            <input type="text" name="lastname" value="{{values.lastname}}">
+            <br>
+            Telefon:<br>
+            <select name="code">
+                {{#codes}}
+                <option value="{{d_code}}">{{d_code}}</option>
+                {{/codes}}
+            </select>
+            <input type="text" name="telephone" value="{{values.telephone}}">
+            <br>
+            Počet minut:<br>
+            <input type="number" name="minutes" value="{{values.minutes}}">
+            <br>
+            Souhlasí:<br>
+            <input type="checkbox" name="agree" value="true" {{values.agree}}>
+            <br><br>
+            <input type="submit" value="Uložit">
+        </form>
+    </body>
+</html>
